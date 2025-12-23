@@ -39,8 +39,8 @@ def fetch_markets_by_ids(ids: list[str]) -> dict:
         buy_limit = trade_prices.get("buy", {}).get("limit") if isinstance(trade_prices, dict) else None
         sell_limit = trade_prices.get("sell", {}).get("limit") if isinstance(trade_prices, dict) else None
 
-        outcome_asks = _ensure_two(buy_limit, prices)
-        outcome_bids = _ensure_two(sell_limit, prices)
+        outcome_bids = _ensure_two(buy_limit, prices)
+        outcome_asks = _ensure_two(sell_limit, prices)
 
         market = {
             "id": data.get("id"),

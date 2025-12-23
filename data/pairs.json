@@ -1,0 +1,26 @@
+[
+  {
+    "left": {
+      "provider": "polymarket",
+      "id": "556033",
+      "link": "https://polymarket.com/event/lighter-market-cap-fdv-one-day-after-launch?tid=1766502847855"
+    },
+    "right": {
+      "provider": "limitless",
+      "id": "lighter-market-cap-fdv-above-dollar2b-one-day-after-launch-1764856486493",
+      "link": "https://limitless.exchange/pro/markets/lighter-market-cap-fdv-above-dollar2b-one-day-after-launch-1764856486493"
+    }
+  },
+  {
+    "left": {
+      "provider": "polymarket",
+      "id": "666646",
+      "link": "https://polymarket.com/event/lighter-market-cap-fdv-one-day-after-launch?tid=1766502847855"
+    },
+    "right": {
+      "provider": "limitless",
+      "id": "lighter-market-cap-fdv-above-dollar3b-one-day-after-launch-1764856489019",
+      "link": "https://limitless.exchange/pro/markets/lighter-market-cap-fdv-above-dollar3b-one-day-after-launch-1764856489019"
+    }
+  }
+]

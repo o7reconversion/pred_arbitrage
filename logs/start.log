@@ -1,0 +1,36 @@
+
+> monitor-frontend@0.1.0 start
+> node server.js
+
+frontend listening on http://0.0.0.0:3000
+INFO:     Will watch for changes in these directories: ['/root/snap/pred_arbitrage']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [712677] using StatReload
+INFO:     Started server process [712749]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     147.161.182.84:17656 - "GET /api/pairs HTTP/1.1" 200 OK
+INFO:     147.161.182.84:33532 - "POST /api/pairs HTTP/1.1" 200 OK
+INFO:     147.161.182.84:33533 - "GET /api/markets?ids=556033&provider=polymarket HTTP/1.1" 200 OK
+INFO:     147.161.182.84:33531 - "GET /api/markets?ids=lighter-market-cap-fdv-above-dollar2b-one-day-after-launch-1764856486493&provider=limitless HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'backend/providers/limitless.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [712749]
+INFO:     Started server process [715278]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     147.161.182.84:29746 - "GET /api/pairs HTTP/1.1" 200 OK
+INFO:     147.161.182.84:29745 - "GET /api/markets?ids=lighter-market-cap-fdv-above-dollar2b-one-day-after-launch-1764856486493&provider=limitless HTTP/1.1" 200 OK
+INFO:     147.161.182.84:29746 - "GET /api/markets?ids=556033&provider=polymarket HTTP/1.1" 200 OK
+INFO:     147.161.182.84:52538 - "OPTIONS /api/pairs HTTP/1.1" 200 OK
+INFO:     147.161.182.84:52532 - "POST /api/pairs HTTP/1.1" 200 OK
+INFO:     147.161.182.84:52539 - "GET /api/markets?ids=lighter-market-cap-fdv-above-dollar2b-one-day-after-launch-1764856486493%2Clighter-market-cap-fdv-above-dollar3b-one-day-after-launch-1764856489019&provider=limitless HTTP/1.1" 200 OK
+INFO:     147.161.182.84:52540 - "GET /api/markets?ids=556033%2C686122&provider=polymarket HTTP/1.1" 200 OK
+INFO:     147.161.182.84:5298 - "POST /api/pairs HTTP/1.1" 200 OK
+INFO:     147.161.182.84:5297 - "GET /api/markets?ids=lighter-market-cap-fdv-above-dollar2b-one-day-after-launch-1764856486493%2Clighter-market-cap-fdv-above-dollar3b-one-day-after-launch-1764856489019&provider=limitless HTTP/1.1" 200 OK
+INFO:     147.161.182.84:5299 - "GET /api/markets?ids=556033%2C686122%2C666646&provider=polymarket HTTP/1.1" 200 OK
+INFO:     147.161.182.84:5299 - "POST /api/pairs HTTP/1.1" 200 OK
+INFO:     147.161.182.84:5290 - "GET /api/markets?ids=lighter-market-cap-fdv-above-dollar2b-one-day-after-launch-1764856486493%2Clighter-market-cap-fdv-above-dollar3b-one-day-after-launch-1764856489019&provider=limitless HTTP/1.1" 200 OK
+INFO:     147.161.182.84:5299 - "GET /api/markets?ids=556033%2C666646&provider=polymarket HTTP/1.1" 200 OK

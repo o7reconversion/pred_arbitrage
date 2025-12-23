@@ -9,8 +9,11 @@ const rightIdInput = document.getElementById("right-id");
 const leftLinkInput = document.getElementById("left-link");
 const rightLinkInput = document.getElementById("right-link");
 const pairListEl = document.getElementById("pair-list");
+const clearPairsButton = document.getElementById("clear-pairs");
 
-const API_BASE = "http://localhost:8000/api/markets";
+const API_HOST = window.location.hostname || "localhost";
+const API_BASE = `${window.location.protocol}//${API_HOST}:8000/api/markets`;
+const PAIRS_API = `${window.location.protocol}//${API_HOST}:8000/api/pairs`;
 const STORAGE_KEY = "monitor.marketPairs";
 
 let trackedPairs = [];
@@ -34,7 +37,21 @@ function formatPrice(value) {
   return numeric.toFixed(3);
 }
 
-function loadPairs() {
+async function loadPairs() {
+  try {
+    const response = await fetch(PAIRS_API);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    const payload = await response.json();
+    if (Array.isArray(payload.pairs)) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload.pairs));
+      return payload.pairs;
+    }
+  } catch (error) {
+    console.warn("Failed to load saved pairs from server", error);
+  }
+
   try {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
     return Array.isArray(stored) ? stored : [];
@@ -45,6 +62,22 @@ function loadPairs() {
 
 function savePairs() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(trackedPairs));
+  persistPairs();
+}
+
+async function persistPairs() {
+  try {
+    const response = await fetch(PAIRS_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pairs: trackedPairs })
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+  } catch (error) {
+    console.warn("Failed to persist pairs on server", error);
+  }
 }
 
 function parseMarketInput(provider, value) {
@@ -224,6 +257,11 @@ function buildComparison(leftMarket, rightMarket) {
     for (let j = 0; j < rightCount; j += 1) {
       const leftLabel = left.outcomes[i] || `Outcome ${i + 1}`;
       const rightLabel = right.outcomes[j] || `Outcome ${j + 1}`;
+      const leftNorm = String(leftLabel).trim().toLowerCase();
+      const rightNorm = String(rightLabel).trim().toLowerCase();
+      if (leftNorm && leftNorm === rightNorm) {
+        continue;
+      }
       const leftAsk = Number(left.asks[i]);
       const rightAsk = Number(right.asks[j]);
 
@@ -422,6 +460,17 @@ pairForm.addEventListener("submit", (event) => {
 });
 
 refreshButton.addEventListener("click", loadMarkets);
-trackedPairs = loadPairs();
-renderPairs();
-loadMarkets();
+clearPairsButton.addEventListener("click", async () => {
+  trackedPairs = [];
+  savePairs();
+  renderPairs();
+  loadMarkets();
+});
+
+async function init() {
+  trackedPairs = await loadPairs();
+  renderPairs();
+  loadMarkets();
+}
+
+init();

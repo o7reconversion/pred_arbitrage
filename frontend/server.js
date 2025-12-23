@@ -7,6 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, "public");
 const port = Number(process.env.PORT || 3000);
+const host = process.env.HOST || "127.0.0.1";
 
 const contentTypes = {
   ".html": "text/html; charset=utf-8",
@@ -38,6 +39,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(port, () => {
-  console.log(`frontend listening on http://localhost:${port}`);
+server.listen(port, host, () => {
+  console.log(`frontend listening on http://${host}:${port}`);
 });

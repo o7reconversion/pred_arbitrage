@@ -134,6 +134,28 @@ select {
   margin-bottom: 12px;
 }
 
+.pair-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0 8px;
+}
+
+.clear-button {
+  background: #f6f7fb;
+  border: 1px solid #d9dfe8;
+  color: #2a2f3a;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.clear-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(20, 31, 55, 0.12);
+}
+
 .slug-chip {
   display: inline-flex;
   align-items: center;
