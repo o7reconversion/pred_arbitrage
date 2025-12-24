@@ -48,6 +48,15 @@ npm run start
 
 Open in browser: `http://localhost:3000`
 
+One-command start with `start.sh`:
+```bash
+python3 -m pip install -r backend/requirements.txt
+npm --prefix frontend install
+chmod +x start.sh
+./start.sh
+```
+`start.sh` launches both backend (8000) and frontend (3000) together, binding to `0.0.0.0` for LAN access; exiting the script stops both processes.
+
 ## Dependencies
 Backend deps are listed in `backend/requirements.txt`:
 - fastapi

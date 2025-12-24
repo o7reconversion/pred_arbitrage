@@ -49,11 +49,17 @@ npm run start
 
 浏览器访问：`http://localhost:3000`
 
+使用 `start.sh` 一键启动前后端：
+```bash
+python3 -m pip install -r backend/requirements.txt
+npm --prefix frontend install
+chmod +x start.sh
+./start.sh
+```
+`start.sh` 会同时启动后端（8000）和前端（3000），并绑定到 `0.0.0.0` 以便局域网访问；退出脚本会自动停止两个进程。
+
 ## 依赖
 后端依赖已整理到 `backend/requirements.txt`：
 - fastapi
 - uvicorn
 - py_clob_client
-
-## 备注
-当前版本以最小可用为目标，优先完成监控与提示流程。
