@@ -1,5 +1,0 @@
-
-> monitor-frontend@0.1.0 start
-> node server.js
-
-frontend listening on http://localhost:3000
