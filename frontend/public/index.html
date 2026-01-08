@@ -16,61 +16,67 @@
         <div class="panel-header">
           <button id="refresh">刷新</button>
         </div>
-        <form id="pair-form" class="slug-form">
-          <label>市场对（跨平台）</label>
-          <div class="pair-grid">
-            <div class="pair-column">
-              <span class="pair-label">市场 A</span>
-              <select id="left-provider" name="left-provider">
-                <option value="polymarket">Polymarket</option>
-                <option value="limitless">Limitless</option>
-              </select>
-              <input
-                id="left-id"
-                name="left-id"
-                type="text"
-                placeholder="ID 或链接"
-                autocomplete="off"
-              />
-              <input
-                id="left-link"
-                name="left-link"
-                type="text"
-                placeholder="Polymarket 链接（可选）"
-                autocomplete="off"
-              />
-            </div>
-            <div class="pair-column">
-              <span class="pair-label">市场 B</span>
-              <select id="right-provider" name="right-provider">
-                <option value="polymarket">Polymarket</option>
-                <option value="limitless">Limitless</option>
-              </select>
-              <input
-                id="right-id"
-                name="right-id"
-                type="text"
-                placeholder="ID 或链接"
-                autocomplete="off"
-              />
-              <input
-                id="right-link"
-                name="right-link"
-                type="text"
-                placeholder="Polymarket 链接（可选）"
-                autocomplete="off"
-              />
-            </div>
+        <div class="panel-grid">
+          <div class="panel-column">
+            <form id="pair-form" class="slug-form">
+              <label>新增市场对</label>
+              <div class="pair-grid">
+                <div class="pair-column">
+                  <span class="pair-label">市场 A</span>
+                  <select id="left-provider" name="left-provider">
+                    <option value="polymarket">Polymarket</option>
+                    <option value="limitless">Limitless</option>
+                  </select>
+                  <input
+                    id="left-id"
+                    name="left-id"
+                    type="text"
+                    placeholder="ID 或链接"
+                    autocomplete="off"
+                  />
+                  <input
+                    id="left-link"
+                    name="left-link"
+                    type="text"
+                    placeholder="Polymarket 链接（可选）"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="pair-column">
+                  <span class="pair-label">市场 B</span>
+                  <select id="right-provider" name="right-provider">
+                    <option value="polymarket">Polymarket</option>
+                    <option value="limitless">Limitless</option>
+                  </select>
+                  <input
+                    id="right-id"
+                    name="right-id"
+                    type="text"
+                    placeholder="ID 或链接"
+                    autocomplete="off"
+                  />
+                  <input
+                    id="right-link"
+                    name="right-link"
+                    type="text"
+                    placeholder="Polymarket 链接（可选）"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <button type="submit">添加市场对</button>
+              <p class="hint">Polymarket 可填 market ID 或链接（链接可选填）；Limitless 可填 slug 或链接。</p>
+            </form>
           </div>
-          <button type="submit">添加市场对</button>
-          <p class="hint">Polymarket 可填 market ID 或链接（链接可选填）；Limitless 可填 slug 或链接。</p>
-        </form>
-        <div class="pair-toolbar">
-          <button id="clear-pairs" type="button" class="clear-button">清空保存</button>
+          <div class="panel-column">
+            <div class="pair-toolbar">
+              <button id="clear-pairs" type="button" class="clear-button">清空保存</button>
+            </div>
+            <div id="pair-list" class="slug-list"></div>
+            <div id="status" class="status">等待加载…</div>
+            <div id="market-list" class="market-list"></div>
+          </div>
         </div>
-        <div id="pair-list" class="slug-list"></div>
-        <div id="status" class="status">等待加载…</div>
-        <div id="market-list" class="market-list"></div>
       </section>
     </main>
 
